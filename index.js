@@ -23,12 +23,12 @@ app.get("/api/hello", function (req, res) {
   res.json({ greeting: "hello API" });
 });
 
-app.get("api/:timestamp", (req, res) => {
+app.get("/api/:timestamp", (req, res) => {
   const timestamp = req.params.timestamp;
 
-  if (!isNaN(Number(timestamp)) && timestamp.lenght === 13) {
+  if (!isNaN(Number(timestamp)) && timestamp.length === 13) {
     return res.json({
-      unix: timestamp,
+      unix: Number(timestamp),
       utc: new Date(Number(timestamp)).toUTCString(),
     });
   }
